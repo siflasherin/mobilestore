@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{%extends 'customer/base.html'%}
+
+{%block body_block%}
+
+{%for cart in items%}
+
+<div class="row">
+
+    <div class="col-6">
+        <div class="card" style="width: 18rem;">
+            <img src="{{cart.item.image.url}}" class="card-img-top" alt="...">
+
+        </div>
+    </div>
+    <div class="col-6 p-5">
+        <div class="card-body">
+            <h5 class="card-title">{{cart.item.mobile_name}}</h5>
+            <h5 class="card-title">{{cart.item.price}}</h5>
+            <h5 class="card-title">{{cart.item.storage}}</h5>
+            <h5 class="card-title">{{cart.status}}</h5>
+            <a href="{%url 'ordercreation' cart.id %}" class="btn btn-primary">BUY NOW</a>
+            <a href="{%url 'removeitem' cart.id %}" class="btn btn-danger">Remove Item</a>
+
+        </div>
+    </div>
+
+</div>
+
+{%endfor%}
+<div class="container">
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+            <table class="table">
+                <tr>
+                    <td><h5>Total : {{total}}</h5></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

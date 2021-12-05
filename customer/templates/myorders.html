@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%extends 'customer/base.html'%}
+
+{%block body_block%}
+
+{%for order in object_list%}
+<!--#instead of object_list we want our customised one "orders" .todo this we want to 'context_object_name="orders"'-->
+
+<div class="row">
+
+    <div class="col-6">
+        <div class="card" style="width: 18rem;">
+            <img src="{{order.item.item.image.url}}" class="card-img-top" alt="...">
+
+        </div>
+    </div>
+    <div class="col-6 p-5">
+        <div class="card-body">
+            <h5 class="card-title">{{order.item.item.mobile_name}}</h5>
+            <h5 class="card-title">{{order.item.item.price}},{{order.item.item.storage}}</h5>
+            <h5 class="card-title">{{order.order_date}}</h5>
+            <h5 class="card-title">{{order.status}}</h5>
+
+        </div>
+    </div>
+
+</div>
+
+{%endfor%}
+
+{%endblock%}
